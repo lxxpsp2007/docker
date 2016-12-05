@@ -1,0 +1,52 @@
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the 
+# remarked out baseurl= line instead.
+#
+#
+ 
+[base]
+name=CentOS-$releasever - Base - yum.9z.cn
+failovermethod=priority
+baseurl=http://yum.9z.cn/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=http://yum.9z.cn/centos/RPM-GPG-KEY-CentOS-7
+ 
+#released updates 
+[updates]
+name=CentOS-$releasever - Updates - yum.9z.cn
+failovermethod=priority
+baseurl=http://yum.9z.cn/centos/$releasever/updates/$basearch/
+gpgcheck=1
+gpgkey=http://yum.9z.cn/centos/RPM-GPG-KEY-CentOS-7
+ 
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras - yum.9z.cn
+failovermethod=priority
+baseurl=http://yum.9z.cn/centos/$releasever/extras/$basearch/
+gpgcheck=1
+gpgkey=http://yum.9z.cn/centos/RPM-GPG-KEY-CentOS-7
+ 
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus - yum.9z.cn
+failovermethod=priority
+baseurl=http://yum.9z.cn/centos/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=http://yum.9z.cn/centos/RPM-GPG-KEY-CentOS-7
+ 
+#contrib - packages by Centos Users
+[contrib]
+name=CentOS-$releasever - Contrib - yum.9z.cn
+failovermethod=priority
+baseurl=http://yum.9z.cn/centos/$releasever/contrib/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=http://yum.9z.cn/centos/RPM-GPG-KEY-CentOS-7
