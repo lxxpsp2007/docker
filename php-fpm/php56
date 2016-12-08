@@ -1,11 +1,13 @@
 FROM devel:5000/centos:7.2.1511
 MAINTAINER  HJ lxxpsp2007@126.com
 
+RUN mkdir -p /opt/www/ ; echo "<?php phpinfo() ?>" > /opt/www/info.php
 ADD lib.tar.gz php-5.6.28.tar.gz /usr/local/
 ADD libfreetype.so.6  libjpeg.so.62  libpng15.so.15  libtidy-0.99.so.0 /lib64/
 ADD etc.tar.gz /usr/local/php-5.6.28
+ADD run.sh /
 
-EXPOSE 9000
+#EXPOSE 9000
 
-CMD ["-F"]
-ENTRYPOINT [ "/usr/local/php-5.6.28/sbin/php-fpm" ]
+CMD [ "/run.sh"]
+ENTRYPOINT [ "bash" ]
