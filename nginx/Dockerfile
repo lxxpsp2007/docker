@@ -3,9 +3,10 @@ MAINTAINER  HJ lxxpsp2007@126.com
 
 ADD nginx-1.10.2.tar.gz /usr/local/
 ADD conf.tar.gz /usr/local/nginx-1.10.2/
-ADD run.sh /
-RUN mkdir -p /var/log/nginx/ ; ln -sf /dev/stdout /var/log/nginx/nginx.log ; ln -sf /dev/stderr /var/log/nginx/error.log
+#ADD run.sh /
+RUN mkdir -p /var/log/nginx/ /opt/www; echo 'nginx-t' > /opt/www/index.html ; ln -sf /dev/stdout /var/log/nginx/nginx.log ; ln -sf /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 80
-CMD [ "/run.sh" ]
-ENTRYPOINT [ "bash" ]
+#CMD [ "/run.sh" ]
+#ENTRYPOINT [ "bash" ]
+ENTRYPOINT [ "/usr/local/nginx-1.10.2/sbin/nginx" ]
