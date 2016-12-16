@@ -6,4 +6,4 @@ if [ ! -z "${fpm_port}" ];then
     sed -i "s/^listen = .*/listen = 0.0.0.0:${fpm_port}/g" /usr/local/${php_version}/etc/php-fpm.conf
 fi
 
-/usr/local/php-5.6.28/sbin/php-fpm -F 
+/usr/local/${fpm_port}/sbin/php-fpm -F 

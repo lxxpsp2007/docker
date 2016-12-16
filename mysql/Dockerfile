@@ -1,4 +1,4 @@
-FROM devel:5000/centos:7.2.1511
+FROM centos:7.2.1511
 MAINTAINER  HJ lxxpsp2007@126.com
 
 ADD mysql-5.6.26.tar.gz /usr/local/
